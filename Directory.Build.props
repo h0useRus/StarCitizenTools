@@ -1,5 +1,19 @@
 <Project>
-    <PropertyGroup>
-        
-    <PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <RootNamespace>NSW.StarCitizen.Tools</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <Product>SC:Tools</Product>
+    <ProductName>SC:Tools 2</ProductName>
+    <FileVersion>2.0.$([System.DateTime]::Now.ToString("yyyy.MMdd"))</FileVersion>
+    <Authors>Denis Ibragimov</Authors>
+    <Company>NewSoftWorld</Company>
+    <Copyright>Copyright © $([System.DateTime]::Now.Year) NewSoftWorld</Copyright>
+    <RepositoryUrl>https://github.com/h0useRus/StarCitizenTools</RepositoryUrl>
+  </PropertyGroup>
 </Project>

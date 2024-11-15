@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35506.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarCitizen.Tools.App", "src\StarCitizen.Tools.App\StarCitizen.Tools.App.csproj", "{C00741C6-7717-4725-B50B-BF96694FFA78}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "global", "global", "{DB5996E3-CCC7-444B-AA51-976705089258}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{63FBF38B-C3DA-428F-9749-7F975FE3878A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarCitizen.Tools.Core", "src\StarCitizen.Tools.Core\StarCitizen.Tools.Core.csproj", "{2B30C379-7050-46A0-9E85-44D6C2874DCD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C00741C6-7717-4725-B50B-BF96694FFA78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C00741C6-7717-4725-B50B-BF96694FFA78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C00741C6-7717-4725-B50B-BF96694FFA78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C00741C6-7717-4725-B50B-BF96694FFA78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B30C379-7050-46A0-9E85-44D6C2874DCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B30C379-7050-46A0-9E85-44D6C2874DCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B30C379-7050-46A0-9E85-44D6C2874DCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B30C379-7050-46A0-9E85-44D6C2874DCD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C00741C6-7717-4725-B50B-BF96694FFA78} = {63FBF38B-C3DA-428F-9749-7F975FE3878A}
+		{2B30C379-7050-46A0-9E85-44D6C2874DCD} = {63FBF38B-C3DA-428F-9749-7F975FE3878A}
+	EndGlobalSection
+EndGlobal
