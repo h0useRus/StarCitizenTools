@@ -2,7 +2,7 @@
 
 namespace NSW.StarCitizen.Tools.API.Json
 {
-    public record BuildManifect
+    public record BuildManifest
     {
         /// <summary>
         /// The build manifest file name
@@ -11,7 +11,7 @@ namespace NSW.StarCitizen.Tools.API.Json
         /// <summary>
         /// Empty manifest
         /// </summary>
-        public static BuildManifect Default { get; } = new BuildManifect();
+        public static BuildManifest Default { get; } = new ();
         /// <summary>
         /// The Branch (usually same as server version).
         /// </summary>
@@ -56,9 +56,9 @@ namespace NSW.StarCitizen.Tools.API.Json
         /// Load from file.
         /// </summary>
         /// <param name="path">The directory path.</param>
-        /// <returns>Return deserialized <see cref="BuildManifect"/> or <see cref="Default"/>.</returns>
-        public static BuildManifect? Load(string path) => JsonHelper.GetFromFile<BuildManifectRaw>(Path.Combine(path, FileName))?.Data;
+        /// <returns>Return deserialized <see cref="BuildManifest"/> or <see cref="Default"/>.</returns>
+        public static BuildManifest? Load(string path) => JsonHelper.GetFromFile<BuildManifestRaw>(Path.Combine(path, FileName))?.Data;
     }
 
-    internal record BuildManifectRaw(BuildManifect Data);
+    internal record BuildManifestRaw(BuildManifest Data);
 }

@@ -35,11 +35,7 @@ namespace NSW.StarCitizen.Tools.API
         {
             var dirName = new DirectoryInfo(EntityPath).Name;
             var split = dirName.Split('_');
-            if (split.Length > 1)
-            {
-                return split[1].Substring(1, split[1].Length - 2);
-            }
-            return dirName;
+            return split.Length > 1 ? split[1].Substring(1, split[1].Length - 2) : dirName;
         }
     }
 }

@@ -1,13 +1,10 @@
 ﻿namespace NSW.StarCitizen.Tools.API;
 
 /// <summary>
-/// Base object container for files and folders.
+/// Base file system entity
 /// </summary>
-public abstract record FileSystemEntity(
-    /// <summary>
-    /// The file system object path.
-    /// </summary>
-    string EntityPath)
+/// <param name="EntityPath">Tha entity path.</param>
+public abstract record FileSystemEntity(string EntityPath)
 {
     /// <summary>
     /// Return that <see cref="Path"/> is actual.
