@@ -2,8 +2,11 @@
 {
     public record AppDataRootFolder : FileSystemEntity
     {
+        /// <summary>
+        /// The AppData folder name
+        /// </summary>
         public const string FolderName = "Star Citizen";
-        public AppDataRootFolder()
+        internal AppDataRootFolder()
             : base(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), FolderName))
         {
         }

@@ -57,7 +57,7 @@ namespace NSW.StarCitizen.Tools.API.Json
         /// </summary>
         /// <param name="path">The directory path.</param>
         /// <returns>Return deserialized <see cref="BuildManifect"/> or <see cref="Default"/>.</returns>
-        public static BuildManifect LoadOrDefault(string path) => JsonHelper.GetFromFile<BuildManifectRaw>(Path.Combine(path, FileName))?.Data ?? Default;
+        public static BuildManifect? Load(string path) => JsonHelper.GetFromFile<BuildManifectRaw>(Path.Combine(path, FileName))?.Data;
     }
 
     internal record BuildManifectRaw(BuildManifect Data);

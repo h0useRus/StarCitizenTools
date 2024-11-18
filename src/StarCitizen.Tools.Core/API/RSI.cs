@@ -4,7 +4,7 @@
 /// </summary>
 public record RSI : FileSystemEntity
 {
-    private Dictionary<ClientMode, Client> _clients = new();
+    private Dictionary<ClientMode, Client> _clients = [];
     /// <summary>
     /// Create instance of <see cref="RSI"/>.
     /// </summary>
@@ -13,7 +13,9 @@ public record RSI : FileSystemEntity
     {
         Rebuild();
     }
-
+    /// <summary>
+    /// Rebuild RSI structure
+    /// </summary>
     public void Rebuild()
     {
         Launcher = GetLauncher();
@@ -23,7 +25,12 @@ public record RSI : FileSystemEntity
             _clients.Add(client.Mode, client);
         }
     }
+
+    #region AppData
     public AppDataRootFolder AppData { get; } = new AppDataRootFolder();
+    #endregion
+
+    #region Launcher
     /// <summary>
     /// The game launcher.
     /// </summary>
@@ -35,6 +42,9 @@ public record RSI : FileSystemEntity
     /// <returns>The Star Citizen launcher object.</returns>
     public Launcher GetLauncher(string? launcherFolderPath = null)
         => new(Path.Combine(EntityPath, launcherFolderPath ?? Launcher.DefaultFolderName));
+    #endregion
+
+    #region Clients
     /// <summary>
     /// The global clients folder name
     /// </summary>
@@ -69,4 +79,5 @@ public record RSI : FileSystemEntity
             }
         }
     }
+    #endregion
 }

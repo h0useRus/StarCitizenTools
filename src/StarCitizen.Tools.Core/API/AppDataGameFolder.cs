@@ -4,10 +4,23 @@ namespace NSW.StarCitizen.Tools.API
 {
     public record AppDataGameFolder : FileSystemEntity
     {
+        /// <summary>
+        /// Graphics settings folder
+        /// </summary>
         public const string GraphicsSettingsFolder = "GraphicsSettings";
+        /// <summary>
+        /// Shaders folder
+        /// </summary>
         public const string ShadersFolder = "shaders";
+        /// <summary>
+        /// Che if folder contains game data
+        /// </summary>
         public bool IsGameFolder => Directory.Exists(Path.Combine(EntityPath, ShadersFolder));
+        /// <summary>
+        /// The display ready directory name
+        /// </summary>
         public string Name { get; init; }
+
         internal AppDataGameFolder(string path) : base(path)
         {
             Name = TryGetName();

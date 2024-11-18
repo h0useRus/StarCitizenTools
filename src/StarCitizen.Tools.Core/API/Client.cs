@@ -11,7 +11,7 @@ public record Client : FileSystemEntity
     {
         Mode = mode;
         Executable = new(Path.Combine(EntityPath, BinFolderName, ExecutableFileName));
-        Manifest = BuildManifect.LoadOrDefault(EntityPath);
+        Manifest = BuildManifect.Load(EntityPath);
     }
     /// <summary>
     /// The executable file name
@@ -40,5 +40,5 @@ public record Client : FileSystemEntity
     /// <summary>
     /// The client build manifest
     /// </summary>
-    public BuildManifect Manifest { get; }
+    public BuildManifect? Manifest { get; }
 }
