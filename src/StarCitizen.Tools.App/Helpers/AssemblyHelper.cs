@@ -2,7 +2,7 @@
 
 namespace NSW.StarCitizen.Tools.Helpers
 {
-    internal static class AssemblyHelpers
+    internal static class AssemblyHelper
     {
         public static string GetTitle()
         {

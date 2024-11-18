@@ -1,7 +1,4 @@
-﻿// Licensed to the .NET Foundation under one or more agreements.
-// The .NET Foundation licenses this file to you under the MIT license.
-
-using NSW.StarCitizen.Tools.Helpers;
+﻿using NSW.StarCitizen.Tools.Helpers;
 
 namespace NSW.StarCitizen.Tools.Forms
 {
@@ -10,7 +7,7 @@ namespace NSW.StarCitizen.Tools.Forms
         public MainForm()
         {
             InitializeComponent();
-            this.Text = AssemblyHelpers.GetProduct() + " " + AssemblyHelpers.GetFileVersion();
+            this.Text = $"{AssemblyHelper.GetProduct()}  {AssemblyHelper.GetFileVersion()}";
         }
     }
 }
