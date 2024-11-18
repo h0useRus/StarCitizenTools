@@ -1,15 +1,17 @@
-﻿using System.Text.Json;
+﻿using NSW.StarCitizen.Tools.API.Json;
 using NSW.StarCitizen.Tools.Helpers;
 
 namespace NSW.StarCitizen.Tools.API;
 /// <summary>
 /// The Star Citizen client.
 /// </summary>
-public record Client : DirectoryObject
+public record Client : FileSystemEntity
 {
-    internal Client(string rootPath, ClientMode mode) : base(rootPath.AddPathPart(mode.GetDisplayName()))
+    internal Client(string rootPath, ClientMode mode) : base(Path.Combine(rootPath, mode.GetDisplayName()))
     {
         Mode = mode;
+        Executable = new(Path.Combine(EntityPath, BinFolderName, ExecutableFileName));
+        Manifest = BuildManifect.LoadOrDefault(EntityPath);
     }
     /// <summary>
     /// The executable file name
@@ -30,30 +32,13 @@ public record Client : DirectoryObject
     /// <summary>
     /// The client mode.
     /// </summary>
-    public ClientMode Mode { get; init; }
+    public ClientMode Mode { get; }
     /// <summary>
     /// The client executable file
     /// </summary>
-    public ExeFileObject Executable => new(Path.AddPathPart(BinFolderName, ExecutableFileName));
+    public ExeFile Executable { get; }
     /// <summary>
     /// The client build manifest
     /// </summary>
-    public BuildManifect Manifest => GetBuildManifest();
-
-    private BuildManifect GetBuildManifest()
-    {
-        var buildManifectFile = System.IO.Path.Combine(Path, "build_manifest.id");
-        if (File.Exists(buildManifectFile))
-            try
-            {
-                using FileStream openStream = File.OpenRead(buildManifectFile);
-                var raw = JsonSerializer.Deserialize<BuildManifectRaw>(openStream);
-                return raw?.Data ?? BuildManifect.Empty;
-            }
-            catch
-            {
-                return BuildManifect.Empty;
-            }
-        return BuildManifect.Empty;
-    }
+    public BuildManifect Manifest { get; }
 }

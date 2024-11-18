@@ -4,15 +4,16 @@ namespace NSW.StarCitizen.Tools.API;
 /// <summary>
 /// The executable file object
 /// </summary>
-public record ExeFileObject : FileObject
+public record ExeFile : FileSystemEntity
 {
     /// <summary>
     /// An executable file version.
     /// </summary>
-    public FileVersionInfo? Version => IsPathValid ? FileVersionInfo.GetVersionInfo(Path) : null;
+    public FileVersionInfo? Version { get; }
     /// <inheritdoc/>
-    public ExeFileObject(string path) : base(path)
+    public ExeFile(string path) : base(path)
     {
+        Version = IsPathValid ? FileVersionInfo.GetVersionInfo(EntityPath) : null;
     }
     /// <summary>
     /// Run Executable file
@@ -25,7 +26,7 @@ public record ExeFileObject : FileObject
 
         try
         {
-            var startInfo = new ProcessStartInfo(Path);
+            var startInfo = new ProcessStartInfo(EntityPath);
             using var process = Process.Start(startInfo);
             if (process != null)
             {

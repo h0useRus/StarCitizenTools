@@ -3,14 +3,14 @@
 /// <summary>
 /// Base object container for files and folders.
 /// </summary>
-public abstract record FileSystemObject(
+public abstract record FileSystemEntity(
     /// <summary>
     /// The file system object path.
     /// </summary>
-    string Path)
+    string EntityPath)
 {
     /// <summary>
     /// Return that <see cref="Path"/> is actual.
     /// </summary>
-    public bool IsPathValid => !string.IsNullOrWhiteSpace(Path) && System.IO.Path.Exists(Path);
+    public bool IsPathValid => !string.IsNullOrWhiteSpace(EntityPath) && Path.Exists(EntityPath);
 }

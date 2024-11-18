@@ -1,10 +1,8 @@
-﻿using NSW.StarCitizen.Tools.Helpers;
-
-namespace NSW.StarCitizen.Tools.API;
+﻿namespace NSW.StarCitizen.Tools.API;
 /// <summary>
 /// The Star Citizen launcher.
 /// </summary>
-public record Launcher : DirectoryObject
+public record Launcher : FileSystemEntity
 {
     internal Launcher(string rootPath) : base(rootPath)
     {
@@ -21,5 +19,5 @@ public record Launcher : DirectoryObject
     /// <summary>
     /// The launcher executable file.
     /// </summary>
-    public ExeFileObject Executable => new(Path.AddPathPart(ExecutableFileName));
+    public ExeFile Executable => new(Path.Combine(EntityPath, ExecutableFileName));
 }
