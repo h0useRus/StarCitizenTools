@@ -1,19 +1,16 @@
-﻿namespace NSW.StarCitizen.Tools.API;
+﻿using System.Text.Json;
+using NSW.StarCitizen.Tools.Helpers;
+
+namespace NSW.StarCitizen.Tools.API;
 /// <summary>
 /// The Star Citizen client.
 /// </summary>
-public class Client : DirectoryObject
+public record Client : DirectoryObject
 {
-    private readonly RSI _rsi;
-    internal Client(RSI rsi, ClientMode mode) : base(rsi.CreatePath(ClientsFolderName, mode.ToString()))
+    internal Client(string rootPath, ClientMode mode) : base(rootPath.AddPathPart(mode.GetDisplayName()))
     {
-        _rsi = rsi;
         Mode = mode;
     }
-    /// <summary>
-    /// The global clients folder name
-    /// </summary>
-    public const string ClientsFolderName = "StarCitizen";
     /// <summary>
     /// The executable file name
     /// </summary>
@@ -23,7 +20,7 @@ public class Client : DirectoryObject
     /// </summary>
     public const string BinFolderName = "bin64";
     /// <summary>
-    /// The clinet data folder name.
+    /// The client data folder name.
     /// </summary>
     public const string DataFolderName = "data";
     /// <summary>
@@ -37,5 +34,26 @@ public class Client : DirectoryObject
     /// <summary>
     /// The client executable file
     /// </summary>
-    public ExeFileObject Executable => new(CreatePath(BinFolderName, ExecutableFileName));
+    public ExeFileObject Executable => new(Path.AddPathPart(BinFolderName, ExecutableFileName));
+    /// <summary>
+    /// The client build manifest
+    /// </summary>
+    public BuildManifect Manifest => GetBuildManifest();
+
+    private BuildManifect GetBuildManifest()
+    {
+        var buildManifectFile = System.IO.Path.Combine(Path, "build_manifest.id");
+        if (File.Exists(buildManifectFile))
+            try
+            {
+                using FileStream openStream = File.OpenRead(buildManifectFile);
+                var raw = JsonSerializer.Deserialize<BuildManifectRaw>(openStream);
+                return raw?.Data ?? BuildManifect.Empty;
+            }
+            catch
+            {
+                return BuildManifect.Empty;
+            }
+        return BuildManifect.Empty;
+    }
 }

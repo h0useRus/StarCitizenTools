@@ -14,6 +14,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{63FBF38B-C3D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarCitizen.Tools.Core", "src\StarCitizen.Tools.Core\StarCitizen.Tools.Core.csproj", "{2B30C379-7050-46A0-9E85-44D6C2874DCD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{34AE4D18-BBF1-4607-9DA9-6D9727BF7967}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarCitizen.Tools.TestConsole", "tests\StarCitizen.Tools.TestConsole\StarCitizen.Tools.TestConsole.csproj", "{A162FB6F-964C-40F4-B843-7B00372971CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +32,10 @@ Global
 		{2B30C379-7050-46A0-9E85-44D6C2874DCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B30C379-7050-46A0-9E85-44D6C2874DCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B30C379-7050-46A0-9E85-44D6C2874DCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A162FB6F-964C-40F4-B843-7B00372971CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A162FB6F-964C-40F4-B843-7B00372971CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A162FB6F-964C-40F4-B843-7B00372971CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A162FB6F-964C-40F4-B843-7B00372971CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -35,5 +43,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{C00741C6-7717-4725-B50B-BF96694FFA78} = {63FBF38B-C3DA-428F-9749-7F975FE3878A}
 		{2B30C379-7050-46A0-9E85-44D6C2874DCD} = {63FBF38B-C3DA-428F-9749-7F975FE3878A}
+		{A162FB6F-964C-40F4-B843-7B00372971CE} = {34AE4D18-BBF1-4607-9DA9-6D9727BF7967}
 	EndGlobalSection
 EndGlobal
